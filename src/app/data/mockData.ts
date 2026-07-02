@@ -1,0 +1,288 @@
+import type { AppState } from '../types';
+
+export function generateCodigo(index: number): string {
+  return `CAL${String(index).padStart(6, '0')}`;
+}
+
+export const initialState: AppState = {
+  localesExternos: [
+    {
+      id: 'le01', nombre: 'Zapatos Caribe', contacto: 'Carlos Reyes',
+      telefono: '+58 414-123-4567', email: 'carlos@zapatoscaribe.com',
+      direccion: 'Av. Bolívar 45, Local 3-B, Caracas',
+      condicionesPrestamo: '30 días máximo, liquidación quincenal',
+      activo: true, fechaRegistro: '2026-01-15',
+    },
+    {
+      id: 'le02', nombre: 'Calzado El Rey', contacto: 'María González',
+      telefono: '+58 424-234-5678', email: 'mgonzalez@calzadoelrey.ve',
+      direccion: 'C.C. Sambil, Nivel Planta Baja, Local PB-22',
+      condicionesPrestamo: '21 días máximo, pago inmediato al vender',
+      activo: true, fechaRegistro: '2026-02-03',
+    },
+    {
+      id: 'le03', nombre: 'Moda Pie Feliz', contacto: 'Jorge Peralta',
+      telefono: '+58 416-345-6789', email: 'jperalta@piefeliz.com',
+      direccion: 'Urb. Los Palos Grandes, Av. F, Qta. 12',
+      condicionesPrestamo: '15 días máximo, sin excepciones',
+      activo: true, fechaRegistro: '2026-03-10',
+    },
+    {
+      id: 'le04', nombre: 'Boutique Pasos Firmes', contacto: 'Ana Martínez',
+      telefono: '+58 412-456-7890', email: 'ana@pasosfirmes.ve',
+      direccion: 'Av. Francisco de Miranda, Torre HP, Local 2',
+      condicionesPrestamo: '30 días, comisión 15% sobre precio de venta',
+      activo: true, fechaRegistro: '2026-04-20',
+    },
+    {
+      id: 'le05', nombre: 'Calzado Express Norte', contacto: 'Pedro López',
+      telefono: '+58 426-567-8901', email: 'pedro@expressnorte.com',
+      direccion: 'C.C. Millenium, Local 34, Maracay',
+      condicionesPrestamo: '45 días para provinciales, liquidación mensual',
+      activo: false, fechaRegistro: '2026-05-05',
+    },
+  ],
+
+  zapatos: [
+    // EN BODEGA (12)
+    {
+      id: 'z001', codigo: 'CAL001001', nombre: 'Air Force 1 Low', marca: 'Nike',
+      modelo: 'Air Force 1 Low', talla: '42', color: 'Blanco/Blanco',
+      precioCosto: 85, precioVentaSugerido: 150, categoria: 'casual',
+      localOrigen: 'Bodega Central', estado: 'en_bodega',
+    },
+    {
+      id: 'z002', codigo: 'CAL001002', nombre: 'Air Max 90', marca: 'Nike',
+      modelo: 'Air Max 90', talla: '41', color: 'Negro/Gris',
+      precioCosto: 95, precioVentaSugerido: 170, categoria: 'deportivo',
+      localOrigen: 'Bodega Central', estado: 'en_bodega',
+    },
+    {
+      id: 'z003', codigo: 'CAL001003', nombre: 'Skechers D\'Lites 3.0', marca: 'Skechers',
+      modelo: 'D\'Lites 3.0', talla: '38', color: 'Rosa/Blanco',
+      precioCosto: 55, precioVentaSugerido: 95, categoria: 'casual',
+      localOrigen: 'Bodega Central', estado: 'en_bodega',
+    },
+    {
+      id: 'z004', codigo: 'CAL001004', nombre: 'Soft 7', marca: 'ECCO',
+      modelo: 'Soft 7', talla: '39', color: 'Negro Cuero',
+      precioCosto: 110, precioVentaSugerido: 185, categoria: 'formal',
+      localOrigen: 'Bodega Central', estado: 'en_bodega',
+    },
+    {
+      id: 'z005', codigo: 'CAL001005', nombre: 'Go Walk 6', marca: 'Skechers',
+      modelo: 'Go Walk 6', talla: '41', color: 'Negro/Blanco',
+      precioCosto: 50, precioVentaSugerido: 90, categoria: 'deportivo',
+      localOrigen: 'Bodega Central', estado: 'en_bodega',
+    },
+    {
+      id: 'z006', codigo: 'CAL001006', nombre: 'Flyroam Trail', marca: 'Timberland',
+      modelo: 'Flyroam Trail', talla: '43', color: 'Negro/Gris',
+      precioCosto: 95, precioVentaSugerido: 165, categoria: 'deportivo',
+      localOrigen: 'Bodega Central', estado: 'en_bodega',
+    },
+    {
+      id: 'z007', codigo: 'CAL001007', nombre: 'Dunk Low', marca: 'Nike',
+      modelo: 'Dunk Low', talla: '40', color: 'Blanco/Verde',
+      precioCosto: 90, precioVentaSugerido: 165, categoria: 'casual',
+      localOrigen: 'Bodega Central', estado: 'en_bodega',
+    },
+    {
+      id: 'z008', codigo: 'CAL001008', nombre: 'Wallabee', marca: 'Clarks',
+      modelo: 'Wallabee', talla: '43', color: 'Maple Suede',
+      precioCosto: 85, precioVentaSugerido: 150, categoria: 'casual',
+      localOrigen: 'Bodega Central', estado: 'en_bodega',
+    },
+    {
+      id: 'z009', codigo: 'CAL001009', nombre: 'Arch Fit Paradyme', marca: 'Skechers',
+      modelo: 'Arch Fit Paradyme', talla: '42', color: 'Gris/Negro',
+      precioCosto: 70, precioVentaSugerido: 125, categoria: 'deportivo',
+      localOrigen: 'Bodega Central', estado: 'en_bodega',
+    },
+    {
+      id: 'z010', codigo: 'CAL001010', nombre: 'Air Jordan 1 Mid', marca: 'Nike',
+      modelo: 'Air Jordan 1 Mid', talla: '39', color: 'Rojo/Negro/Blanco',
+      precioCosto: 110, precioVentaSugerido: 200, categoria: 'casual',
+      localOrigen: 'Bodega Central', estado: 'en_bodega',
+    },
+    {
+      id: 'z011', codigo: 'CAL001011', nombre: 'Euro Sprint Hiker', marca: 'Timberland',
+      modelo: 'Euro Sprint Hiker', talla: '41', color: 'Rojo Brick',
+      precioCosto: 100, precioVentaSugerido: 180, categoria: 'bota',
+      localOrigen: 'Bodega Central', estado: 'en_bodega',
+    },
+    {
+      id: 'z012', codigo: 'CAL001012', nombre: 'Riona Sandal', marca: 'Steve Madden',
+      modelo: 'Riona', talla: '37', color: 'Nude/Beige',
+      precioCosto: 45, precioVentaSugerido: 85, categoria: 'sandalia',
+      localOrigen: 'Bodega Central', estado: 'en_bodega',
+    },
+
+    // PRESTADOS (10)
+    {
+      id: 'z013', codigo: 'CAL001013', nombre: 'Stan Smith', marca: 'Adidas',
+      modelo: 'Stan Smith', talla: '43', color: 'Blanco/Verde',
+      precioCosto: 70, precioVentaSugerido: 130, categoria: 'casual',
+      localOrigen: 'Bodega Central', estado: 'prestado',
+      localPrestamoId: 'le02', fechaPrestamo: '2026-06-20',
+    },
+    {
+      id: 'z014', codigo: 'CAL001014', nombre: 'Ultraboost 22', marca: 'Adidas',
+      modelo: 'Ultraboost 22', talla: '40', color: 'Azul/Blanco',
+      precioCosto: 130, precioVentaSugerido: 220, categoria: 'deportivo',
+      localOrigen: 'Bodega Central', estado: 'prestado',
+      localPrestamoId: 'le01', fechaPrestamo: '2026-06-18',
+    },
+    {
+      id: 'z015', codigo: 'CAL001015', nombre: '1460 8-Eye Boot', marca: 'Dr. Martens',
+      modelo: '1460 Boot', talla: '40', color: 'Negro Cuero',
+      precioCosto: 120, precioVentaSugerido: 200, categoria: 'bota',
+      localOrigen: 'Bodega Central', estado: 'prestado',
+      localPrestamoId: 'le03', fechaPrestamo: '2026-06-10',
+    },
+    {
+      id: 'z016', codigo: 'CAL001016', nombre: '6" Premium Boot', marca: 'Timberland',
+      modelo: '6-Inch Premium', talla: '42', color: 'Wheat Nubuck',
+      precioCosto: 140, precioVentaSugerido: 250, categoria: 'bota',
+      localOrigen: 'Bodega Central', estado: 'prestado',
+      localPrestamoId: 'le02', fechaPrestamo: '2026-06-22',
+    },
+    {
+      id: 'z017', codigo: 'CAL001017', nombre: 'Pegasus 40', marca: 'Nike',
+      modelo: 'Pegasus 40', talla: '44', color: 'Blanco/Naranja',
+      precioCosto: 105, precioVentaSugerido: 180, categoria: 'deportivo',
+      localOrigen: 'Bodega Central', estado: 'prestado',
+      localPrestamoId: 'le04', fechaPrestamo: '2026-06-25',
+    },
+    {
+      id: 'z018', codigo: 'CAL001018', nombre: 'Chelsea Boot', marca: 'Dr. Martens',
+      modelo: 'Chelsea 2976', talla: '37', color: 'Negro Cuero',
+      precioCosto: 100, precioVentaSugerido: 175, categoria: 'bota',
+      localOrigen: 'Bodega Central', estado: 'prestado',
+      localPrestamoId: 'le03', fechaPrestamo: '2026-06-03',
+    },
+    {
+      id: 'z019', codigo: 'CAL001019', nombre: '990v5', marca: 'New Balance',
+      modelo: '990v5', talla: '42', color: 'Gris Claro',
+      precioCosto: 150, precioVentaSugerido: 270, categoria: 'deportivo',
+      localOrigen: 'Bodega Central', estado: 'prestado',
+      localPrestamoId: 'le01', fechaPrestamo: '2026-06-15',
+    },
+    {
+      id: 'z020', codigo: 'CAL001020', nombre: 'Biom Fjuel', marca: 'ECCO',
+      modelo: 'Biom Fjuel', talla: '44', color: 'Azul Marino',
+      precioCosto: 115, precioVentaSugerido: 195, categoria: 'formal',
+      localOrigen: 'Bodega Central', estado: 'prestado',
+      localPrestamoId: 'le05', fechaPrestamo: '2026-05-28',
+    },
+    {
+      id: 'z021', codigo: 'CAL001021', nombre: 'Samba OG', marca: 'Adidas',
+      modelo: 'Samba OG', talla: '40', color: 'Blanco/Negro/Goma',
+      precioCosto: 85, precioVentaSugerido: 155, categoria: 'casual',
+      localOrigen: 'Bodega Central', estado: 'prestado',
+      localPrestamoId: 'le02', fechaPrestamo: '2026-06-28',
+    },
+    {
+      id: 'z022', codigo: 'CAL001022', nombre: 'RS-X³ Puzzle', marca: 'Puma',
+      modelo: 'RS-X³ Puzzle', talla: '43', color: 'Blanco/Rojo/Azul',
+      precioCosto: 75, precioVentaSugerido: 135, categoria: 'deportivo',
+      localOrigen: 'Bodega Central', estado: 'prestado',
+      localPrestamoId: 'le01', fechaPrestamo: '2026-06-29',
+    },
+
+    // VENDIDOS (8)
+    {
+      id: 'z023', codigo: 'CAL001023', nombre: 'Desert Boot', marca: 'Clarks',
+      modelo: 'Desert Boot', talla: '44', color: 'Arena/Natural',
+      precioCosto: 90, precioVentaSugerido: 160, categoria: 'casual',
+      localOrigen: 'Bodega Central', estado: 'vendido',
+      vendidoPor: 'local_original', precioVentaFinal: 160,
+      fechaVenta: '2026-06-30',
+    },
+    {
+      id: 'z024', codigo: 'CAL001024', nombre: 'Gazelle', marca: 'Adidas',
+      modelo: 'Gazelle', talla: '38', color: 'Verde Oliva',
+      precioCosto: 65, precioVentaSugerido: 120, categoria: 'casual',
+      localOrigen: 'Bodega Central', estado: 'vendido',
+      vendidoPor: 'local_original', precioVentaFinal: 115,
+      fechaVenta: '2026-06-28',
+    },
+    {
+      id: 'z025', codigo: 'CAL001025', nombre: 'Blondie Pump', marca: 'Steve Madden',
+      modelo: 'Blondie', talla: '36', color: 'Nude/Cuero',
+      precioCosto: 60, precioVentaSugerido: 110, categoria: 'formal',
+      localOrigen: 'Bodega Central', estado: 'vendido',
+      vendidoPor: 'local_externo', localVentaId: 'le02', precioVentaFinal: 110,
+      fechaVenta: '2026-06-26',
+    },
+    {
+      id: 'z026', codigo: 'CAL001026', nombre: 'Forum Low', marca: 'Adidas',
+      modelo: 'Forum Low', talla: '41', color: 'Blanco/Rojo',
+      precioCosto: 80, precioVentaSugerido: 145, categoria: 'casual',
+      localOrigen: 'Bodega Central', estado: 'vendido',
+      vendidoPor: 'local_externo', localVentaId: 'le04', precioVentaFinal: 145,
+      fechaVenta: '2026-06-24',
+    },
+    {
+      id: 'z027', codigo: 'CAL001027', nombre: 'Future Rider', marca: 'Puma',
+      modelo: 'Future Rider', talla: '38', color: 'Amarillo/Negro',
+      precioCosto: 55, precioVentaSugerido: 100, categoria: 'deportivo',
+      localOrigen: 'Bodega Central', estado: 'vendido',
+      vendidoPor: 'local_original', precioVentaFinal: 98,
+      fechaVenta: '2026-06-22',
+    },
+    {
+      id: 'z028', codigo: 'CAL001028', nombre: 'Jadon Platform Boot', marca: 'Dr. Martens',
+      modelo: 'Jadon Platform', talla: '36', color: 'Negro Cuero',
+      precioCosto: 130, precioVentaSugerido: 225, categoria: 'bota',
+      localOrigen: 'Bodega Central', estado: 'vendido',
+      vendidoPor: 'local_original', precioVentaFinal: 225,
+      fechaVenta: '2026-06-19',
+    },
+    {
+      id: 'z029', codigo: 'CAL001029', nombre: '327', marca: 'New Balance',
+      modelo: '327', talla: '43', color: 'Terracota/Blanco',
+      precioCosto: 75, precioVentaSugerido: 135, categoria: 'casual',
+      localOrigen: 'Bodega Central', estado: 'vendido',
+      vendidoPor: 'local_externo', localVentaId: 'le03', precioVentaFinal: 130,
+      fechaVenta: '2026-06-17',
+    },
+    {
+      id: 'z030', codigo: 'CAL001030', nombre: '574 Classic', marca: 'New Balance',
+      modelo: '574 Classic', talla: '41', color: 'Gris/Azul Marino',
+      precioCosto: 80, precioVentaSugerido: 145, categoria: 'deportivo',
+      localOrigen: 'Bodega Central', estado: 'vendido',
+      vendidoPor: 'local_externo', localVentaId: 'le01', precioVentaFinal: 145,
+      fechaVenta: '2026-06-14',
+    },
+  ],
+
+  prestamos: [
+    { id: 'p001', zapatoId: 'z013', localExternoId: 'le02', fechaPrestamo: '2026-06-20', estado: 'activo' },
+    { id: 'p002', zapatoId: 'z014', localExternoId: 'le01', fechaPrestamo: '2026-06-18', estado: 'activo' },
+    { id: 'p003', zapatoId: 'z015', localExternoId: 'le03', fechaPrestamo: '2026-06-10', estado: 'activo', notas: 'Local solicitó más tiempo para exhibición' },
+    { id: 'p004', zapatoId: 'z016', localExternoId: 'le02', fechaPrestamo: '2026-06-22', estado: 'activo' },
+    { id: 'p005', zapatoId: 'z017', localExternoId: 'le04', fechaPrestamo: '2026-06-25', estado: 'activo' },
+    { id: 'p006', zapatoId: 'z018', localExternoId: 'le03', fechaPrestamo: '2026-06-03', estado: 'activo', notas: 'ALERTA: Supera días acordados' },
+    { id: 'p007', zapatoId: 'z019', localExternoId: 'le01', fechaPrestamo: '2026-06-15', estado: 'activo' },
+    { id: 'p008', zapatoId: 'z020', localExternoId: 'le05', fechaPrestamo: '2026-05-28', estado: 'activo', notas: 'ALERTA: Local inactivo, pendiente devolución' },
+    { id: 'p009', zapatoId: 'z021', localExternoId: 'le02', fechaPrestamo: '2026-06-28', estado: 'activo' },
+    { id: 'p010', zapatoId: 'z022', localExternoId: 'le01', fechaPrestamo: '2026-06-29', estado: 'activo' },
+    // Historial cerrado (devueltos/vendidos)
+    { id: 'p011', zapatoId: 'z025', localExternoId: 'le02', fechaPrestamo: '2026-06-15', fechaDevolucion: '2026-06-26', estado: 'vendido' },
+    { id: 'p012', zapatoId: 'z026', localExternoId: 'le04', fechaPrestamo: '2026-06-10', fechaDevolucion: '2026-06-24', estado: 'vendido' },
+    { id: 'p013', zapatoId: 'z029', localExternoId: 'le03', fechaPrestamo: '2026-06-05', fechaDevolucion: '2026-06-17', estado: 'vendido' },
+    { id: 'p014', zapatoId: 'z030', localExternoId: 'le01', fechaPrestamo: '2026-06-01', fechaDevolucion: '2026-06-14', estado: 'vendido' },
+  ],
+
+  ventas: [
+    { id: 'v001', zapatoId: 'z030', fecha: '2026-06-14', precioVenta: 145, precioCosto: 80, vendidoPor: 'local_externo', localExternoId: 'le01', prestamoId: 'p014' },
+    { id: 'v002', zapatoId: 'z029', fecha: '2026-06-17', precioVenta: 130, precioCosto: 75, vendidoPor: 'local_externo', localExternoId: 'le03', prestamoId: 'p013' },
+    { id: 'v003', zapatoId: 'z028', fecha: '2026-06-19', precioVenta: 225, precioCosto: 130, vendidoPor: 'local_original' },
+    { id: 'v004', zapatoId: 'z027', fecha: '2026-06-22', precioVenta: 98, precioCosto: 55, vendidoPor: 'local_original' },
+    { id: 'v005', zapatoId: 'z026', fecha: '2026-06-24', precioVenta: 145, precioCosto: 80, vendidoPor: 'local_externo', localExternoId: 'le04', prestamoId: 'p012' },
+    { id: 'v006', zapatoId: 'z025', fecha: '2026-06-26', precioVenta: 110, precioCosto: 60, vendidoPor: 'local_externo', localExternoId: 'le02', prestamoId: 'p011' },
+    { id: 'v007', zapatoId: 'z024', fecha: '2026-06-28', precioVenta: 115, precioCosto: 65, vendidoPor: 'local_original' },
+    { id: 'v008', zapatoId: 'z023', fecha: '2026-06-30', precioVenta: 160, precioCosto: 90, vendidoPor: 'local_original' },
+  ],
+};
