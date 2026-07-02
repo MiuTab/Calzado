@@ -5,9 +5,9 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Commands
 
 ```bash
-pnpm install   # install dependencies
-pnpm dev       # start Vite dev server
-pnpm build     # production build (vite build)
+npm install     # install dependencies
+npm run dev     # start Vite dev server
+npm run build   # production build (vite build)
 ```
 
 There is no lint, test, or typecheck script configured in `package.json` — do not assume one exists.
@@ -23,4 +23,4 @@ This is a Figma Make-generated React + TypeScript + Vite app (`@figma/my-make-fi
 - **UI components** (`src/app/components/ui/`) are shadcn/Radix-based primitives; do not hand-roll equivalents. `src/app/components/figma/ImageWithFallback.tsx` is a Figma Make-specific helper — do not remove.
 - **Styling**: Tailwind v4 via `@tailwindcss/vite`, plus hand-written inline `style={{...}}` objects for layout-heavy components like `App.tsx`'s `Sidebar`/`MobileTopBar`. Global styles/theme/fonts live in `src/styles/`.
 - **Vite config** ([vite.config.ts](vite.config.ts)): includes a custom `figma-asset-resolver` plugin resolving `figma:asset/*` imports to `src/assets/`, and a `@` alias to `src/`. The comments there explicitly warn not to remove the React/Tailwind plugins or add `.css`/`.tsx`/`.ts` to `assetsInclude` — respect those constraints.
-- **Package manager**: pnpm only (`pnpm-workspace.yaml` pins a single-package workspace with a `minimumReleaseAge` supply-chain guard). Don't introduce npm/yarn lockfiles.
+- **Package manager**: npm only (`package-lock.json` is committed). Don't introduce pnpm/yarn lockfiles.

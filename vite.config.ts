@@ -17,6 +17,8 @@ function figmaAssetResolver() {
 }
 
 export default defineConfig({
+  // GitHub Pages serves this project from https://<user>.github.io/Calzado/
+  base: '/Calzado/',
   plugins: [
     figmaAssetResolver(),
     // The React and Tailwind plugins are both required for Make, even if

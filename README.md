@@ -15,29 +15,28 @@ Sistema de gestión de inventario de calzado para bodega central. Permite llevar
 - [Vite](https://vitejs.dev/) como bundler
 - [Tailwind CSS](https://tailwindcss.com/) v4
 - [Radix UI](https://www.radix-ui.com/) / [MUI](https://mui.com/) para componentes
-- [pnpm workspaces](https://pnpm.io/workspaces)
 
 ## Requisitos
 
 - Node.js 18+
-- [pnpm](https://pnpm.io/)
+- npm
 
 ## Instalación
 
 ```bash
-pnpm install
+npm install
 ```
 
 ## Desarrollo
 
 ```bash
-pnpm dev
+npm run dev
 ```
 
 ## Build de producción
 
 ```bash
-pnpm build
+npm run build
 ```
 
 ## Estructura del proyecto
